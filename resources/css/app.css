@@ -1,8 +1,67 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* @import "input.css";
+@import "button.css";
+@import "sidebar.css"; */
 
 .flex::before,
 .flex::after {
     display: none !important;
+}
+
+.btn-primary {
+    @apply bg-alerange text-white;
+}
+
+.btn-warning {
+    @apply bg-yellow-500;
+}
+
+.btn-danger {
+    @apply bg-red-500 text-white;
+}
+
+.btn-light-outline {
+    @apply text-white border border-white;
+}
+
+.btn-white-outline {
+    @apply text-black border border-[#F1F1F1];
+}
+
+.input-error {
+    @apply ring ring-red-500;
+}
+
+.input-primary {
+    @apply focus:bg-form-bg bg-form-bg focus:outline-alerange focus:outline-none;
+}
+
+.input-primary-outline {
+    @apply bg-[#fff] focus:bg-[#fff] border-alerange focus:border-alerange;
+    @apply file:bg-alerange file:text-white file:rounded-md file:p-2;
+}
+
+@layer components {
+    .side-link {
+        @apply flex items-center font-normal text-black text-sm w-full mb-5 gap-3 transition-all;
+    }
+
+    .side-link svg {
+        @apply text-[#B7B7B7];
+    }
+    .side-link.active {
+        @apply font-semibold border-r-[3px] border-alerange;
+    }
+
+    .side-link.active svg {
+        @apply text-alerange;
+    }
+
+    input.top-search {
+        @apply rounded-full border border-gray-2 placeholder:text-gray-1 text-base text-gray-1 px-5 py-[11px]
+        w-full max-w-[570px] focus:outline-none focus:ring-2 transition-all bg-no-repeat bg-center
+        bg-[center_right_20px];
+    }
 }

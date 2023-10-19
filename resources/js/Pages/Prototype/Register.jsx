@@ -42,9 +42,11 @@ export default function Register() {
                     </div>
                 </div>
                 <div className="grid space-y-[14px] mt-[30px]">
-                    <Button className="rounded-2xl bg-alerange py-[13px] text-center">
-                        <span className="text-base font-semibold">Sign Up</span>
-                    </Button>
+                    <Link href={route('prototype.dashboard')}>
+                        <Button className="rounded-2xl bg-alerange py-[13px] text-center">
+                            <span className="text-base font-semibold">Sign Up</span>
+                        </Button>
+                    </Link>
                     <Link href={route('prototype.login')}>
                         <Button variant='light-outlinr' className="rounded-2xl border border-white py-[13px] text-center">
                             <span className="text-base text-white">
