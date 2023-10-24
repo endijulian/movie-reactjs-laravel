@@ -16,7 +16,7 @@ use Inertia\Inertia;
 |
 */
 
-Route::redirect('/', '/prototype/login');
+Route::redirect('/', '/login');
 // Route::redirect('/register', '/prototype/register');
 
 Route::get('/dashboard', function () {

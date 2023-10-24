@@ -114,7 +114,7 @@ export default function Register() {
                     </div>
                 </div>
                 <div className="grid space-y-[14px] mt-[30px]">
-                    <Button type='submit' disabled={processing} className="rounded-2xl bg-alerange py-[13px] text-center">
+                    <Button type='submit'  processing={processing}  className="rounded-2xl bg-alerange py-[13px] text-center">
                         <span className="text-base font-semibold">Sign Up</span>
                     </Button>
                     <Link href={route('login')}>
