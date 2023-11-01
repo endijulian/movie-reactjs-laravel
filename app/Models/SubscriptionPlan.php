@@ -10,6 +10,6 @@ class SubscriptionPlan extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $table = ['subscription_plans'];
+    protected $table = 'subscription_plans';
     protected $fillable = ['name', 'price', 'active_period_in_month', 'features'];
 }
