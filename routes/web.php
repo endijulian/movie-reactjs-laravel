@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\MovieController as AdminMovieController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\User\DashboardController;
 use App\Http\Controllers\User\MovieController;
@@ -19,8 +20,12 @@ use Inertia\Inertia;
 |
 */
 
+
+//MIDTRANS ROUTE
+Route::post('midtrans/notification', [SubscriptionPlanController::class, 'midtransCallback']);
+
 Route::redirect('/', '/login');
-// Route::redirect('/register', '/prototype/register');
+
 
 Route::middleware(['auth', 'role:user'])->prefix('dashboard')->name('user.dashboard.')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('index');
@@ -28,6 +33,11 @@ Route::middleware(['auth', 'role:user'])->prefix('dashboard')->name('user.dashbo
     Route::get('movie/{movie:slug}', [MovieController::class, 'show'])->name('movie.show')->middleware('checkUserSubscription:true');
     Route::get('subscription-plan', [SubscriptionPlanController::class, 'index'])->name('subscription-plan.index')->middleware('checkUserSubscription:false');
     Route::post('subscription-plan/{subscription}/user-subscribe', [SubscriptionPlanController::class, 'userSubscribe'])->name('subscription.userSubscribe')->middleware('checkUserSubscription:false');
+});
+
+Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.dashboard.')->group(function () {
+    Route::put('movie/{movie}/restore', [AdminMovieController::class, 'restore'])->name('movie.restore');
+    Route::resource('movie', AdminMovieController::class);
 });
 
 Route::middleware('auth')->group(function () {
